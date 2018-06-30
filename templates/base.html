@@ -28,6 +28,7 @@
 
 <body>
     <div class="page-wrapper chiller-theme sidebar-bg bg1 toggled">
+        <!-- 上面加入toggled是显示 -->
         <a id="show-sidebar" class="btn btn-sm btn-dark" href="javascript:void(0);">
             <i class="fas fa-bars"></i>
         </a>
@@ -122,7 +123,7 @@
                             分类
                         </div>
                         <div class="dropdown-divider"></div>
-                        {% for category, articles in categories %}
+                        {% for category, articles in (categories|sort)[:5] %}
                         <a class="dropdown-item" href="{{ SITEURL }}/{{ category.url }}">
                             <div class="notification-content">
                                 <div class="icon">
@@ -152,7 +153,7 @@
                             标签
                         </div>
                         <div class="dropdown-divider"></div>
-                        {% for tag, articles in tags %}
+                        {% for tag, articles in (tags|sort)[:5] %}
                         <a class="dropdown-item" href="{{ SITEURL }}/{{ tag.url }}">
                             <div class="notification-content">
                                 <div class="content">
@@ -180,7 +181,7 @@
             </div>
         </nav>
         <main class="page-content">
-            <div class="container-fluid" style="float: left; width: 80%">
+            <div class="container-fluid" style="float: left">
                 {% block content %}
                 {% endblock content %}
             </div>
@@ -198,6 +199,13 @@
     <script src="/theme/js/custom.js"></script>
     <script type="text/javascript" src="/theme/tipuesearch/tipuesearch_set.js"></script>
     <script type="text/javascript" src="/theme/tipuesearch/tipuesearch.min.js"></script>
+    <script>
+        $(window).on('resize', function() {
+            if($(window).width() < 400) {
+                $(".page-wrapper").removeClass("toggled");
+            }
+        })
+    </script>
     {% include "partials/totop.html" %}
 </body>
 

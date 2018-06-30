@@ -1,3 +1,4 @@
+
 /* title for search result or tagged posts*/
 .label-title {
     margin-top: 1.1em;
@@ -8,13 +9,15 @@
 
 .post {
     padding: 25px 0 15px;
+    width: 80%;
 }
 
 .post .post-title {
     margin: 0;
     color: #555;
     text-align: left;
-    font: bold 25px/1.1 "ff-tisa-web-pro", Cambria, "Times New Roman", Georgia, Times, sans-serif;
+    font-weight: bold;
+    font-family: "ff-tisa-web-pro", Cambria, "Times New Roman", Georgia, Times, sans-serif;
     background: url("dotted-border.png") repeat-x scroll left bottom transparent;
 }
 
@@ -195,4 +198,13 @@
     font-family: "FontAwesome";
     content: "\f0c6";
     padding-right: 0.3em;
+}
+ 
+@media all and (max-width: 599px) and (min-width: 320px) {
+    .post .post-title, h1, h2, h3{
+        font-size: 150%;
+    } 
+    .post {
+        width: 100%;
+    }
 }
