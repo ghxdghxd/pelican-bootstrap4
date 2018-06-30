@@ -1,0 +1,32 @@
+{% extends 'base.html' %} 
+
+{% block title %}
+{{ _('Search') }} - {{ super() }}
+{% endblock title %}
+
+{% block content %}
+<script type="text/javascript" src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="/theme/tipuesearch/tipuesearch_set.js"></script>
+<script type="text/javascript" src="/theme/tipuesearch/tipuesearch.min.js"></script>
+
+<script>
+  $(document).ready(function () {
+    $('#tipue_search_input').tipuesearch({
+      'show': 10,
+      'mode': 'json',
+      'newWindow': false,
+      'contentLocation': '/tipuesearch_content.json'
+    });
+  });
+</script>
+
+
+<div class="row">
+  <div class="form-group col-md-12">
+    <div id="tipue_search_content">
+      <div id="tipue_search_loading"></div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Responsive sidebar template with sliding effect and dropdown menu based on bootstrap 3">
+    <title>JTGuo-KnowledgeBase</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="/theme/css/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="/theme/css/custom.css">
+    <link rel="stylesheet" href="/theme/css/custom-themes.css">
+    <link href="/theme/tipuesearch/css/tipuesearch.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/theme/css/post.css">
+    <link rel="stylesheet" href="/theme/css/pagination.css">
+    <link rel="stylesheet" href="/theme/css/totop.css">
+    <link rel="stylesheet" href="/theme/css/readmore.css">
+    <link rel="shortcut icon" type="image/png" href="/theme/images/favicon.ico" />
+</head>
+
+<body>
+    <div class="page-wrapper chiller-theme sidebar-bg bg1 toggled">
+        <a id="show-sidebar" class="btn btn-sm btn-dark" href="javascript:void(0);">
+            <i class="fas fa-bars"></i>
+        </a>
+        <nav id="sidebar" class="sidebar-wrapper">
+            <div class="sidebar-content">
+                <div class="sidebar-brand">
+                    <a href="/">iKnowledgeBase</a>
+                </div>
+                <div class="sidebar-header">
+                    <div class="user-pic">
+                        <img class="img-responsive img-rounded" src="/theme/images/Logo.jpg" alt="User picture" style="border-radius: 50%">
+                    </div>
+                    <div class="user-info">
+                        <span class="user-name">
+                            <strong>JT Guo</strong>
+                        </span>
+                        <span class="user-role">Administrator</span>
+                        <span class="user-status">
+                            <i class="fa fa-circle"></i>
+                            <span>Online</span>
+                        </span>
+                    </div>
+                </div>
+                <!-- sidebar-header  -->
+                <div class="sidebar-search"><div>
+                    <form action="search.html" class="input-group">
+                        <input type="text" name="q" id="tipue_search_input" class="form-control search-menu" placeholder="好记性不如烂键盘...">
+                        <div class="input-group-append">
+                            <button class="btn btn-default" type="submit">
+                                <i class="fa fa-search" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div></div>
+                <!-- sidebar-search  -->
+                <div class="sidebar-menu">
+                    <ul>
+                        <li class="header-menu">
+                            <span>分类文件夹</span>
+                        </li>
+                        {% for category, articles in categories %}
+                        <li class="sidebar-dropdown">
+                            <a href="javascript:void(0);">
+                                <i class="fa fa-folder"></i>
+                                <span>{{ category }}</span>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                {% for article in articles %}
+                                    <li>
+                                        <a href="{{ SITEURL }}/{{ article.url }}">{{article.title}}</a>
+                                    </li>
+                                {% endfor %}
+                                </ul>
+                            </div>
+                        </li>
+                        {% endfor %}
+                        <li class="header-menu">
+                            <span>标签</span>
+                        </li>
+                        {% for tag, articles in tags %}
+                        <li class="sidebar-dropdown">
+                            <a href="javascript:void(0);">
+                                <i class="fa fa-tag"></i>
+                                <span>{{ tag }}</span>
+                            </a>
+                            <div class="sidebar-submenu">
+                                <ul>
+                                {% for article in articles %}
+                                    <li>
+                                        <a href="{{ SITEURL }}/{{ article.url }}">{{article.title}}</a>
+                                    </li>
+                                {% endfor %}
+                                </ul>
+                            </div>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <!-- sidebar-menu  -->
+            </div>
+            <!-- sidebar-content  -->
+            <div class="sidebar-footer">
+                <div class="dropdown">
+                    <a href="javascript:void(0);" class="" id="dropdownMenuNotification" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-list"></i>
+                        <!-- <span class="badge badge-pill badge-warning notification">3</span> -->
+                    </a>
+                    <div class="dropdown-menu notifications" aria-labelledby="dropdownMenuMessage">
+                        <div class="notifications-header">
+                            <i class="fa fa-bell"></i>
+                            分类
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        {% for category, articles in categories %}
+                        <a class="dropdown-item" href="{{ SITEURL }}/{{ category.url }}">
+                            <div class="notification-content">
+                                <div class="icon">
+                                    <i class="fas fa-check text-success border border-success"></i>
+                                </div>
+                                <div class="content">
+                                    <div class="notification-detail">{{category}}</div>
+                                    <div class="notification-time">
+                                        {{articles|length}}篇文章
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        {% endfor %}
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item text-center" href="/categories.html">查看所有分类</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <a href="javascript:void(0);" class="" id="dropdownMenuMessage" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-tags"></i>
+                        <!-- <span class="badge badge-pill badge-success notification">7</span> -->
+                    </a>
+                    <div class="dropdown-menu messages" aria-labelledby="dropdownMenuMessage">
+                        <div class="messages-header">
+                            <i class="fa fa-tags"></i>
+                            标签
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        {% for tag, articles in tags %}
+                        <a class="dropdown-item" href="{{ SITEURL }}/{{ tag.url }}">
+                            <div class="notification-content">
+                                <div class="content">
+                                    <div class="notification-detail">
+                                        {{tag}}<sup>{{articles|length}}</sup>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                        {% endfor %}
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item text-center" href="/tags.html">查看所有标签</a>
+                    </div>
+                </div>
+                <div>
+                    <a href="/setting.html">
+                        <i class="fa fa-cog"></i>
+                    </a>
+                </div>
+                <div id="close-sidebar">
+                    <a href="javascript:void(0);">
+                        <i class="fas fa-power-off"></i>
+                    </a>
+                </div>
+            </div>
+        </nav>
+        <main class="page-content">
+            <div class="container-fluid" style="float: left; width: 80%">
+                {% block content %}
+                {% endblock content %}
+            </div>
+        </main>
+        <!-- page-content" -->
+    </div>
+    <!-- page-wrapper -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
+    <script type="text/javascript" src="//code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="/theme/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="/theme/js/custom.js"></script>
+    <script type="text/javascript" src="/theme/tipuesearch/tipuesearch_set.js"></script>
+    <script type="text/javascript" src="/theme/tipuesearch/tipuesearch.min.js"></script>
+    {% include "partials/totop.html" %}
+</body>
+
+</html>
