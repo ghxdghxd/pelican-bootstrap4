@@ -200,11 +200,9 @@
     <script type="text/javascript" src="/theme/tipuesearch/tipuesearch_set.js"></script>
     <script type="text/javascript" src="/theme/tipuesearch/tipuesearch.min.js"></script>
     <script>
-        $(window).on('resize', function() {
-            if($(window).width() < 400) {
-                $(".page-wrapper").removeClass("toggled");
-            }
-        })
+        if((screen.width<=600)){
+            $(".page-wrapper").removeClass("toggled");
+        }
     </script>
     {% include "partials/totop.html" %}
 </body>
