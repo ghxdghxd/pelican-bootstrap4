@@ -3,12 +3,25 @@
 {% block title %}{{ category }} | {{ SITENAME }}{% endblock title %}
 
 {% block content %}
-<div class="post"><div class="post-archive">
-<h1 class="label-title">Articles in <em>{{ category }}</em></h1>
-<ul class="listing">
-    {% for article in articles %}
-    <li><span class="date">{{ article.date|strftime('%Y/%m/%d') }}</span><a href="/{{ article.url }}">{{ article.title }}</a></li>
-    {% endfor %}
-</ul>
-</div></div>
+<div class="post">
+    <h1 class="label-title text-center">{{ category }}</h1>
+    {% for article in articles_page.object_list %}
+    <div class="post-content">
+        <div class="recent-post-header">
+            <a class="post-title" href="{{ SITEURL }}/{{ article.url }}">
+                <h4>{{article.title}}
+                <span class="link">&raquo;</span>
+                </h4>
+                </a>
+            <div class="tags">
+                {% for tag in article.tags %}
+                <a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endfor %}
+</div>
 {% endblock content %}
+
+

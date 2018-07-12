@@ -3,12 +3,13 @@
 {% block title %}Categories | {{ SITENAME }}{% endblock title %}
 
 {% block content %}
-<div class="post"><div class="post-archive">
-<h1 class="label-title">Categories on {{ SITENAME }}</h1>
-<ul class="listing">
-    {% for category, articles in categories %}
-    <li><a href="/{{ category.url }}">{{ category }} ({{ articles|length }})</a></li>
-    {% endfor %}
+<h1 class="label-title text-center">分类列表</h1>
+<ul class="list-group list-group-flush list-group-item-action">
+    {% for category, articles in (categories|sort) %}
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+    <a href="{{ SITEURL }}/{{ category.url }}" >{{category}}</a>
+    <span class="badge badge-primary badge-pill">{{articles|length}}</span>
+  </li>
+{% endfor %}
 </ul>
-</div></div>
 {% endblock content %}

@@ -17,8 +17,8 @@
     color: #555;
     text-align: left;
     font-weight: bold;
-    font-family: "ff-tisa-web-pro", Cambria, "Times New Roman", Georgia, Times, sans-serif;
-    background: url("dotted-border.png") repeat-x scroll left bottom transparent;
+    /* font-family: "ff-tisa-web-pro", Cambria, "Times New Roman", Georgia, Times, sans-serif; */
+    /* background: url("dotted-border.png") repeat-x scroll left bottom transparent; */
 }
 
 .post .post-title a {
@@ -199,12 +199,44 @@
     content: "\f0c6";
     padding-right: 0.3em;
 }
- 
-@media all and (max-width: 599px) and (min-width: 320px) {
-    .post .post-title, h1, h2, h3{
-        font-size: 150%;
-    } 
+
+.post .recent-post-header {
+    margin: 0px 20px 14px;
+    padding-bottom: 4px;
+    background: url('dotted-border.png') repeat-x scroll left bottom transparent;
+    clear: both;
+}
+
+.post .recent-post-header h4 {
+    font-size: 18px;
+    margin-top: 0px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    background: none;
+    float: left;
+}
+
+.post .recent-post-header .tags {
+    padding-top: 2px;
+    font-size: 16px;
+    letter-spacing: -0.3px;
+    text-align: right;
+    text-transform: lowercase;
+}
+
+@media all and (max-width:480px){
     .post {
         width: 100%;
+    }
+    .recent-post-header{
+        display: inline;
+    }
+}
+@media all and (max-width:320px){
+    .post {
+        width: 100%;
+    }
+    .recent-post-header{
+        display: inline;
     }
 }
