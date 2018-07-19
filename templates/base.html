@@ -179,9 +179,13 @@
             </div>
         </nav>
         <main class="page-content">
-            <div class="container-fluid" style="float: left">
+            <div class="container-fluid" style="float: left;width: 80%">
                 {% block content %}
                 {% endblock content %}
+                <div class="post">
+                <div class="post-content">
+                    {% include "partials/pagination.html" %}
+                </div></div>
             </div>
         </main>
         <!-- page-content" -->
