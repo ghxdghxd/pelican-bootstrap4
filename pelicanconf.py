@@ -7,7 +7,6 @@ SITENAME = 'iKnowledgeBase'
 SITEURL = 'https://ghxdghxd.github.io'
 GITHUB_URL = 'https://github.com/ghxdghxd'
 PATH = 'content'
-AUTHOR_ROLE = 'Bioinformatist'
 TIMEZONE = 'Asia/Shanghai'
 DEFAULT_LANG = 'zh'
 
