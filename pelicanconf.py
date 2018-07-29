@@ -7,7 +7,7 @@ SITENAME = 'iKnowledgeBase'
 SITEURL = 'https://ghxdghxd.github.io'
 GITHUB_URL = 'https://github.com/ghxdghxd'
 PATH = 'content'
-
+AUTHOR_ROLE = 'Bioinformatist'
 TIMEZONE = 'Asia/Shanghai'
 DEFAULT_LANG = 'zh'
 
@@ -20,7 +20,8 @@ PLUGIN_PATHS = ['plugins']
 PLUGINS = ['tipue_search', "sitemap", "i18n_subsites", "neighbors"]
 
 THEME = "themes/bootstrap4"
-DIRECT_TEMPLATES = ["index", "search", "setting", "archives", "tags", "categories"]
+DIRECT_TEMPLATES = ["index", "search",
+                    "setting", "archives", "tags", "categories"]
 # title, link, font-awesome-id(http://fontawesome.io)
 MENUITEMS = [('Home', '.', 'fa-home'),
              ('Archive', 'archives.html', 'fa-archive'),
@@ -63,7 +64,7 @@ LINKS = (('Pelican', 'http://getpelican.com/'),
 SOCIAL = (('You can add links in your config file', '#'),
           ('Another social link', '#'),)
 
-PAGINATED_DIRECT_TEMPLATES = ['index'] # 分页
+PAGINATED_DIRECT_TEMPLATES = ['index']  # 分页
 DEFAULT_PAGINATION = 3
 
 # Uncomment following line if you want document-relative URLs when developing
