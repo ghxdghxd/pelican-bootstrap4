@@ -203,6 +203,10 @@
         if((screen.width<=600)){
             $(".page-wrapper").removeClass("toggled");
         }
+        $(document).ready(function() {
+            $("table").attr("class", "table table-striped table-bordered table-sm text-center");
+            $("thead").attr("class", "thead-dark");
+        });
     </script>
     {% include "partials/totop.html" %}
 </body>
