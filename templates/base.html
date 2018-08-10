@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <link rel="stylesheet" href="/theme/css/jquery.mCustomScrollbar.min.css">
     <link rel="stylesheet" href="/theme/css/custom.css">
+    <link rel="stylesheet" href="/theme/css/pygment.css">
     <link rel="stylesheet" href="/theme/css/custom-themes.css">
     <link href="/theme/tipuesearch/css/tipuesearch.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -23,7 +24,6 @@
     <link rel="stylesheet" href="/theme/css/readmore.css">
     <link rel="shortcut icon" type="image/png" href="/theme/images/favicon.ico" />
 </head>
-
 <body>
     <div class="page-wrapper chiller-theme sidebar-bg bg1 toggled">
         <!-- 上面加入toggled是显示 -->
@@ -84,7 +84,7 @@
                             </div>
                         </li>
                         {% endfor %}
-                        <li class="header-menu">
+                        <!-- <li class="header-menu">
                             <span>标签</span>
                         </li>
                         {% for tag, articles in tags %}
@@ -103,7 +103,7 @@
                                 </ul>
                             </div>
                         </li>
-                        {% endfor %}
+                        {% endfor %} -->
                     </ul>
                 </div>
                 <!-- sidebar-menu  -->
@@ -207,6 +207,11 @@
             $("table").attr("class", "table table-striped table-bordered table-sm text-center");
             $("thead").attr("class", "thead-dark");
         });
+        var x = document.getElementsByClassName("code");
+        var i;
+        for (i = 0; i < x.length; i++) {
+            x[i].style.textAlign = "left";
+        }
     </script>
     {% include "partials/totop.html" %}
 </body>
