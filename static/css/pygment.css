@@ -27,7 +27,8 @@ code {
 	display: inline-block;
 }
 .highlight pre span.code-line:before {
-    content: counter(linecounter);
+    /* content: counter(linecounter); */
+    content: "$";
     padding-right: 1em;
     display: inline-block;
     color: grey;
