@@ -52,13 +52,13 @@
                 </div>
                 <!-- sidebar-header  -->
                 <div class="sidebar-search"><div>
-                    <form action="search.html" class="input-group">
+                    <form action="/search.html" class="input-group">
                         <input type="text" name="q" id="tipue_search_input" class="form-control search-menu" placeholder="好记性不如烂键盘...">
-                        <div class="input-group-append">
+                        <!-- <div class="input-group-append">
                             <button class="btn btn-default" type="submit">
                                 <i class="fa fa-search" aria-hidden="true"></i>
                             </button>
-                        </div>
+                        </div> -->
                     </form>
                 </div></div>
                 <!-- sidebar-search  -->
@@ -178,18 +178,19 @@
                 </div>
             </div>
         </nav>
-        <main class="page-content">
-            <div class="container-fluid" style="float: left">
-                {% block content %}
-                {% endblock content %}
-                <div class="post">
-                <div class="post-content">
-                    {% include "partials/pagination.html" %}
-                </div></div>
-            </div>
-        </main>
         <!-- page-content" -->
     </div>
+    <main class="page-content">
+        <div class="container-fluid" style="float: left">
+            {% block content %}
+            {% endblock content %}
+            <div class="post">
+                <div class="post-content">
+                {% include "partials/pagination.html" %}
+                </div>
+            </div>
+        </div>
+    </main>
     <!-- page-wrapper -->
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -197,8 +198,9 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
     <script src="/theme/js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script src="/theme/js/custom.js"></script>
-    <script type="text/javascript" src="/theme/tipuesearch/tipuesearch_set.js"></script>
-    <script type="text/javascript" src="/theme/tipuesearch/tipuesearch.min.js"></script>
+    <script type="text/javascript" src="{{ SITEURL }}/theme/tipuesearch/tipuesearch_set.js"></script>
+    <script type="text/javascript" src="{{ SITEURL }}/tipuesearch_content.js"></script>
+    <script type="text/javascript" src="{{ SITEURL }}/theme/tipuesearch/tipuesearch.min.js"></script>
     <script>
         if((screen.width<=600)){
             $(".page-wrapper").removeClass("toggled");
@@ -212,6 +214,9 @@
         for (i = 0; i < x.length; i++) {
             x[i].style.textAlign = "left";
         }
+        $(document).ready(function () {
+        $('#tipue_search_input').tipuesearch();
+        });
     </script>
     {% include "partials/totop.html" %}
 </body>

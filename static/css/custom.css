@@ -66,6 +66,7 @@ body {
 
 .page-wrapper {
     height: 100vh;
+    float: left;
 }
 
 .page-wrapper .theme {
