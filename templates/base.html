@@ -22,14 +22,12 @@
     <link rel="stylesheet" href="/theme/css/pagination.css">
     <link rel="stylesheet" href="/theme/css/totop.css">
     <link rel="stylesheet" href="/theme/css/readmore.css">
+    <link rel="stylesheet" href="/theme/css/slideout.css">
     <link rel="shortcut icon" type="image/png" href="/theme/images/favicon.ico" />
 </head>
 <body>
     <div class="page-wrapper chiller-theme sidebar-bg bg1 toggled">
         <!-- 上面加入toggled是显示 -->
-        <a id="show-sidebar" class="btn btn-sm btn-dark" href="javascript:void(0);">
-            <i class="fas fa-bars"></i>
-        </a>
         <nav id="sidebar" class="sidebar-wrapper">
             <div class="sidebar-content">
                 <div class="sidebar-brand">
@@ -173,14 +171,17 @@
                 </div>
                 <div id="close-sidebar">
                     <a href="javascript:void(0);">
-                        <i class="fas fa-power-off"></i>
+                        <i class="fa fa-power-off"></i>
                     </a>
                 </div>
             </div>
         </nav>
         <!-- page-content" -->
     </div>
-    <main class="page-content">
+    <main id="panel" class="page-content">
+        <a id="show-sidebar" class="toggle-button btn btn-sm btn-dark" href="javascript:void(0);">
+            <i class="fas fa-bars"></i>
+        </a>
         <div class="container-fluid" style="float: left">
             {% block content %}
             {% endblock content %}
@@ -201,6 +202,7 @@
     <script type="text/javascript" src="{{ SITEURL }}/theme/tipuesearch/tipuesearch_set.js"></script>
     <script type="text/javascript" src="{{ SITEURL }}/tipuesearch_content.js"></script>
     <script type="text/javascript" src="{{ SITEURL }}/theme/tipuesearch/tipuesearch.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slideout/0.1.9/slideout.min.js"></script>
     <script>
         if((screen.width<=600)){
             $(".page-wrapper").removeClass("toggled");
@@ -215,7 +217,20 @@
             x[i].style.textAlign = "left";
         }
         $(document).ready(function () {
-        $('#tipue_search_input').tipuesearch();
+            $('#tipue_search_input').tipuesearch();
+        });
+        var slideout = new Slideout({
+            'panel': document.getElementById('panel'),
+            'menu': document.getElementById('sidebar'),
+            'padding': 300,
+            'tolerance': 70
+        });
+        document.querySelector('.toggle-button').addEventListener('click', function() {
+            slideout.toggle();
+        });
+        document.querySelector('#close-sidebar').addEventListener('click', function() {
+            // $(".page-wrapper").removeClass("toggled");
+            slideout.toggle();
         });
     </script>
     {% include "partials/totop.html" %}
