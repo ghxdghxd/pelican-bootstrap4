@@ -29,6 +29,7 @@ http://www.tipue.com/search
     color: #333;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    border: 1px;
 }
 .tipue_search_icon
 {
