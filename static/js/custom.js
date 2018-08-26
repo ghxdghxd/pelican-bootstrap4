@@ -43,7 +43,7 @@ jQuery(function ($) {
     });
 
     // toggle background image
-    $("#toggle-bg").change(function (e) { 
+    $("#toggle-bg").change(function (e) {
         e.preventDefault();
         $('.page-wrapper').toggleClass("sidebar-bg");
     });

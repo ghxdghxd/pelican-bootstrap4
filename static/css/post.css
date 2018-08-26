@@ -1,4 +1,3 @@
-
 /* title for search result or tagged posts*/
 .label-title {
     margin-top: 1.1em;
@@ -8,8 +7,8 @@
 }
 
 .post {
-    padding: 25px 0 15px;
-    width: 80%;
+    padding: 25px 15px;
+    width: 100%;
 }
 
 .post .post-title {
@@ -222,6 +221,54 @@
     letter-spacing: -0.3px;
     text-align: right;
     text-transform: lowercase;
+}
+
+/* post navigator*/
+.post-nav {
+    overflow: hidden;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    padding: 10px;
+    white-space: nowrap;
+    border-top: 1px solid #eee;
+    /* position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: white; */
+}
+
+.post-nav a {
+    display: inline-block;
+    line-height: 25px;
+    font-size: 15px;
+    color: #555;
+    border-bottom: none;
+    /* float: left; */
+}
+
+.post-nav a.pre {
+    float: left;
+}
+
+.post-nav a.pre:before {
+    font-family: "FontAwesome";
+    content: "\f0d9";
+    padding-right: 0.3em;
+}
+
+.post-nav a.next {
+    float: right;
+}
+
+.post-nav a.next:after {
+    font-family: "FontAwesome";
+    content: "\f0da";
+    padding-left: 0.3em;
+}
+
+.post-nav a:hover {
+    border-bottom: none;
+    color: #222;
 }
 
 @media all and (max-width:480px){

@@ -240,8 +240,10 @@ body {
 /*--------------------sidebar-header----------------------*/
 
 .sidebar-wrapper .sidebar-header {
-    padding: 20px;
+    padding: 20px 0;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
 }
 
 .sidebar-wrapper .sidebar-header .user-pic {

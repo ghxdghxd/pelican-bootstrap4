@@ -26,3 +26,34 @@
 .slideout-open .slideout-menu {
   display: block;
 }
+
+/*
+ * -- TABLET (AND UP) MEDIA QUERIES --
+ * On tablets and other medium-sized devices, we want to customize some
+ * of the mobile styles.
+ */
+@media (min-width: 40em) {
+
+  .slideout-open,
+  .slideout-open body,
+  .slideout-open .slideout-panel {
+    overflow-y: visible;
+  }
+}
+
+/* slideout only on mobile devices. */
+
+@media screen and (min-width: 780px) {
+  .slideout-panel {
+    margin-left: 300px;
+    height: 100%;
+  }
+
+  .slideout-menu {
+    display: block;
+  }
+
+  .btn-hamburger {
+    display: none;
+  }
+}
